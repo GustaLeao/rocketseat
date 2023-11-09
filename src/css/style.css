@@ -17,7 +17,7 @@
   --profile-border: orange;
 }
 
-.light {
+.hydrated_light {
   --text-color: black;
   --bg-url: url(/src/assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
