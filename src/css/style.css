@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(/src/assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --hover-stroke: rgba(255, 255, 255, 1);
+  --hover-surface: rgba(255, 255, 255, 0.2);
+  --highlight-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(/src/assets/moon-stars.svg);
+  --profile-border: orange;
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(/src/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --hover-stroke: rgba(0, 0, 0, 1);
+  --hover-surface: rgba(0, 0, 0, 0.2);
+  --highlight-hover: rgba(0, 0, 0, 0.15);
+  --switch-bg-url: url(/src/assets/sun.svg);
+  --profile-border: blue;
+}
+
+body {
+  /* seletores p/ iniciantes
+
+  background-image: url(/rocketseat/src/assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  /* Seletores p/ experientes */
+  background: var(--bg-url) no-repeat top center/cover;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+/* Geralmente, quando se coloca a largura de um objeto, não precisa por a altura NO CSS */
+#container {
+  padding-top: 56px;
+  width: 100%;
+  max-width: 588px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+/*
+A tag img tem como predefinição o display:inline, o que significa que não funciona o "margin".
+Pra centralizar o conteúdo dessa tag, ou eu alinho através da tag PAI, ou eu mudo o display da minha tag img para "block"
+*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile ion-icon {
+  font-size: 114px;
+  border: 1px solid var(--profile-border);
+  border-radius: 50%;
+  padding: 12px;
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 0 auto;
+}
+
+#switch button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+#switch button:hover {
+  cursor: pointer;
+  outline: 6px solid var(--highlight-hover);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  display: block;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/*
+Esse código abaixo também poderia ser escrito da seguinte maneira para conseguir manter os elementos centralizados e com distância de 8px:
+
+ul {
+  list-style:none;
+  display:flex;
+  flex-direction: collumn;
+  gap: 8px
+}
+
+ul li {
+  ...
+}
+
+Ou seja, não precisaria escrever mais código em uma estilização de outro seletor, o que talvez torne a programação mais intuitiva e rápida.
+*/
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+ul li {
+  margin-top: 16px;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+ul li a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+ul li:hover {
+  background: var(--hover-surface);
+  border: 1.5px solid var(--hover-stroke);
+}
+
+#sociallinks {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+#sociallinks ion-icon {
+  font-size: 25px;
+}
+
+.sociallinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.15s;
+  padding: 14px;
+}
+
+.sociallinks:hover {
+  background-color: var(--highlight-hover);
+}
+
+footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  :root{
+    --bg-url: url(/assets/bg-desktop.jpg);
+  }
+  .light{
+    --bg-url: url(/assets/bg-desktop-light.jpg);
+  }
+}
